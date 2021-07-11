@@ -14,8 +14,4 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script:
-            apt install git
-            cd /var/www/loadbalancing.fresto.top
-            git pull origin main
-            git status
-            service nginx restart
+            whoami
