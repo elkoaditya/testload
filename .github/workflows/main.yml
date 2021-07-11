@@ -17,3 +17,4 @@ jobs:
         server: loadbalancing.fresto.top
         username: elkoaditya
         password: ${{ secrets.ftp_pass }}
+        server-dir: loadbalancing.fresto.top/
