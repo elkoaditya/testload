@@ -15,3 +15,4 @@ jobs:
           port: 22
           script:
             whoami
+            ls
