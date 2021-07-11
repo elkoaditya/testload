@@ -1,7 +1,7 @@
 name: CD
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,6 +16,6 @@ jobs:
           port: 22
           script:
             cd /var/www/loadbalancing.fresto.top
-            git pull origin master
+            git pull origin main
             git status
             service nginx restart
