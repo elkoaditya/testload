@@ -1,20 +1,21 @@
-on: 
-    push:
-        branches:
-            - master
-name: 🚀 Deploy website on push
+name: CD
+on:
+  push:
+    branches: [ master ]
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      with:
-        server: loadbalancing.fresto.top
-        username: elkoaditya
-        password: ${{ secrets.ftp_pass }}
-        server-dir: loadbalancing.fresto.top/
+      - name: CD
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: 'loadbalancing.fresto.top'
+          username: 'elkoaditya'
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script:
+            cd /var/www/loadbalancing.fresto.top
+            git pull origin master
+            git status
+            service nginx restart
