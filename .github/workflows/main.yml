@@ -13,6 +13,6 @@ jobs:
           username: 'root'
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
-          script:
+          script: |
             whoami
             ls
