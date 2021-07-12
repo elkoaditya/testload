@@ -16,7 +16,6 @@ jobs:
           script: |
             apt install git
             cd /var/www/html
-            rm .git -rf
             git init
             git remote add origin https://github.com/elkoaditya/testload.git
             git pull origin main --allow-unrelated-histories
