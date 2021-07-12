@@ -1,0 +1,223 @@
+/* ---- media style --- */
+
+@media print {
+	body{
+		padding: 0;
+		margin: 0;
+		font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
+		font-size: 14px;
+	}
+	.noprint {
+		display:none;
+	}
+	.noprint * {
+		display:none;
+	}
+}
+
+@media screen {
+	body{
+		padding: 0;
+		margin: 0;
+		font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
+		font-size: 14px;
+		background-color: #fcfcff;
+	}
+}
+
+/* --- tag style --- */
+
+a {
+	color: #003399;
+	background-color: transparent;
+	font-weight: normal;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+img{
+	border: 0;
+}
+
+/* --- id style --- */
+
+
+
+/* --- class style --- */
+
+.alert {
+	background-color: #FBE6F2;
+	border: 1px solid #D893A1;
+	background-image: -webkit-linear-gradient(top, #FBE6F2, #FBd6e2);
+	color: #333;
+	margin: 10px 0 5px 0;
+	padding: 10px;
+}
+.a_link{
+	font-size: 10px;
+}
+.cmd-icon{
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	display: none;
+	/*box-shadow: 0 0 3px #0073ea;*/
+	padding: 1px 1px 0 0;
+	cursor: pointer;
+	background-image: url(images/ui-icons_222222_256x240.png);
+}
+.float-list{
+	padding: 0;
+	margin-right: 4px;
+	list-style-type: none;
+}
+.float-list li{
+	float: left;
+}
+.input {
+	padding: 2px;
+	text-shadow: none;
+}
+.link_button {
+	margin: 1px;
+	font: 12px "Trebuchet MS", sans-serif;
+	padding: .2em .3em .2em 18px;
+	text-decoration: none;
+	position: relative;
+	text-shadow: none;
+}
+.link_button:hover {
+	text-decoration: none;
+}
+.link_button span.ui-icon {
+	margin: 2px 4px 2px 2px;
+	position: absolute;
+	left: .1em;
+	top: 50%;
+	margin-top: -8px;
+}
+.note {
+	font-family: Consolas, Monaco, Courier New, Courier, monospace;
+	font-size: 12px;
+	background-color: #f9f9f9;
+	background-image: -webkit-linear-gradient(top, #f9f9f9, #e9e9f9);
+	border: 1px solid #D0D0D0;
+	color: #002166;
+	display: block;
+	margin: 14px 0 20px 0;
+	padding: 12px 10px 12px 10px;
+}
+.page{
+	min-height: 300px;
+	min-width: 300px;
+	margin: 0;
+	padding: 12px;
+	margin: 20px 8%;
+}
+.page-title{
+	margin: 0 5px 20px 20px;
+	font-family: "Times New Roman";
+	font-weight: bold;
+	font-size: 160%;
+}
+.pointer{
+	cursor: pointer;
+}
+.rset {
+	font: 11px "Trebuchet MS", sans-serif;
+	text-shadow: none;
+}
+.spinner{
+	display: none;
+	position: absolute;
+	z-index: 600;
+	height: 16px;
+	width: 16px;
+	top: -100px;
+	left: -500px;
+	background-image: url(images/spinner.png);
+}
+.t-head{
+	font-weight: bold;
+}
+.t-head, .t-alt-head{
+	padding: 2px 12px 2px 4px;
+	text-align: left;
+	font-size: 13px;
+	vertical-align: top;
+}
+.t-data, .t-alt-data, .f-data {
+	padding: 3px 12px 3px 5px;
+	text-align: left;
+	font-size: 13px;
+	vertical-align: top;
+}
+.t-alt-data, .t-alt-head{
+	opacity: 0.6;
+	font-style: italic;
+}
+.t-label, .f-label{
+	text-align: right;
+	font-weight: bold;
+}
+.t-label, .t-item{
+	padding: 3px 12px 3px 5px;
+	font-size: 13px;
+	vertical-align: top;
+}
+.tgl{
+	padding: 2px;
+	cursor: pointer;
+}
+.f-label {
+	padding: 6px 12px 6px 5px;
+	font-size: 13px;
+	vertical-align: top;
+}
+.tabel{
+	empty-cells: show;
+}
+.toolbar{
+	position: relative;
+	float: right;
+	margin: 3px 10px;
+	z-index: 500;
+	display: block;
+}
+
+/* --- jquery --- */
+
+.ui-dialog-titlebar{
+	padding: 3px 13px;
+	font-size: 14px;
+}
+
+.ui-state-default,.ui-state-active{
+	font-weight: normal;
+}
+
+/* --- alternatif jquery class ---- */
+
+.my-state-default{
+	border: #ccc solid 1px;
+	padding: 3px 5px;
+}
+
+/* --- khusus aplikasi --- */
+
+#breadcrumbs {
+	font-size: 11px;
+	color: #555;
+	padding: 0 6px 4px 6px;
+	font-family: sans-serif;
+}
+#breadcrumbs a {
+	font-size: 11px;
+	color: #4297d7;
+	text-decoration: none;
+	font-family: sans-serif;
+}
+#breadcrumbs a:hover {
+	color: #5c9ccc;
+}

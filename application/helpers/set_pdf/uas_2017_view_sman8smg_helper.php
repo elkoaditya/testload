@@ -1,0 +1,390 @@
+<?php
+
+function pdfview_2017_sman8smg_v2($id_nilai_siswa,$resultset_array,$deskripsi_pelajaran,$ekskul_result_array,$prestasi_result_array,$org_result_array,$row,$jumlah_rapor,$page_sikap = 0,$background = 0) {
+	
+	$html = style_2017_v1();
+	//$html .= 		$header;
+	
+	//$html = sikap_2017_v2();
+	$jml = 0 ;
+	foreach($id_nilai_siswa['data'] as $cetak)
+	{
+		$jml++;
+		$jumlah_rapor--;
+		$row_per_siswa=$cetak;
+		
+		$resultset 			= $resultset_array[$cetak['id']];
+		$ekskul_result 		= $ekskul_result_array[$cetak['id']];
+		$prestasi_result 	= $prestasi_result_array[$cetak['id']];
+		$org_result 		= $org_result_array[$cetak['id']];
+			
+	$deskripsi_array = 	func_deskripsi_sikap_v1($row_per_siswa["siswa_nama"],$deskripsi_pelajaran);
+	
+	$header = '		<div id="header_1" class="header">';
+	$header .= 		header_2017_v2($row,$row_per_siswa);
+	$header .= '	</div>';
+	
+	$html .= '	<htmlpagefooter name="footer_pagenum">';
+	//$html .= 	footer_2017_v1($row);
+	$html .= '	</htmlpagefooter>';
+	
+	$html .= '	<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+	
+	//$html .= '		<div id="header_1" class="header">';
+	$html .= 		$header;
+	//$html .= '		</div>';
+	$html .=' 		<br>';
+
+			
+	//////////PAGE 1/////////////
+	$html .= '		<div align="center" class="sub-kategori"><b>CAPAIAN HASIL BELAJAR</b></div>';
+			
+	$html .= 		tablepdf_2017_v2($resultset,$row,$row_per_siswa,$deskripsi_array,$header,0,$page_sikap);
+					$return_nilai_catatan_walikelas = tablepdf_2017_v2($resultset,$row,$row_per_siswa,$deskripsi_array,$header,2);
+	
+	$html .= '		</div>';
+	$html .= '	</div>';
+		
+	//////////PAGE 2/////////////
+	//$html .= '		<div class="sub-kategori"><b>DESKRIPSI PENGETAHUAN DAN KETERAMPILAN</b></div>';
+			
+	//$html .= 		tablepdf_2017_v3($resultset,$row,$row_per_siswa,$deskripsi_array,$header,1,$background);
+	
+	//$html .= '		</div>';
+	///$html .= '	</div>';
+	//////////PAGE 3/////////////
+				 if(($jumlah_rapor>0)or($row['kelas_grade']== 12) )
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				 else
+	$html .= '		<div id="bg_nilai" class="page_bg'.$background.'" >';
+
+	$html .= 			$header;
+	$html .= 			tableextra_2017_v1($ekskul_result,$prestasi_result,$row_per_siswa,$return_nilai_catatan_walikelas,$row);
+	
+	$html .= '			<br/>';
+	$html .= 			ttd_2017_v1($row,1);
+	$html .= '		</div>';
+		/*		
+			if($row['kelas_grade'] == 12)
+			{    
+				if($jumlah_rapor>0)
+				{
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				}
+				else
+				{
+	$html .= '		<div id="bg_nilai" >';
+				}
+	$html .= 			pindahkelasv1($row);
+	$html .= '		</div>';
+			}
+			*/
+		//print_r($row_per_siswa);
+		}
+
+	
+	return $html;
+}
+
+
+
+function pdfview_2017_sman8smg_v3($id_nilai_siswa,$resultset_array,$deskripsi_pelajaran,$ekskul_result_array,$prestasi_result_array,$org_result_array,$row,$jumlah_rapor,$page_sikap = 0,$background = 0) {
+	
+	$html = style_2017_v1();
+	//$html .= 		$header;
+	
+	//$html = sikap_2017_v2();
+	$jml = 0 ;
+	foreach($id_nilai_siswa['data'] as $cetak)
+	{
+		$jml++;
+		$jumlah_rapor--;
+		$row_per_siswa=$cetak;
+		
+		$resultset 			= $resultset_array[$cetak['id']];
+		$ekskul_result 		= $ekskul_result_array[$cetak['id']];
+		$prestasi_result 	= $prestasi_result_array[$cetak['id']];
+		$org_result 		= $org_result_array[$cetak['id']];
+			
+	$deskripsi_array = 	func_deskripsi_sikap_v1($row_per_siswa["siswa_nama"],$deskripsi_pelajaran);
+	
+	$header = '		<div id="header_1" class="header">';
+	$header .= 		header_2017_v2($row,$row_per_siswa);
+	$header .= '	</div>';
+	
+	$html .= '	<htmlpagefooter name="footer_pagenum">';
+	//$html .= 	footer_2017_v1($row);
+	$html .= '	</htmlpagefooter>';
+	
+	$html .= '	<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+	
+	//$html .= '		<div id="header_1" class="header">';
+	$html .= 		$header;
+	//$html .= '		</div>';
+	$html .=' 		<br><br><br><br><br><br>';
+
+			
+	//////////PAGE 1/////////////
+	$html .= '		<div align="center" class="sub-kategori"><b>CAPAIAN HASIL BELAJAR</b></div>';
+			
+	$html .= 		tablepdf_2017_v2($resultset,$row,$row_per_siswa,$deskripsi_array,$header,0,$page_sikap);
+					$return_nilai_catatan_walikelas = tablepdf_2017_v2($resultset,$row,$row_per_siswa,$deskripsi_array,$header,2);
+	
+	$html .= '		</div>';
+	$html .= '	</div>';
+		
+	//////////PAGE 2/////////////
+	//$html .= '		<div class="sub-kategori"><b>DESKRIPSI PENGETAHUAN DAN KETERAMPILAN</b></div>';
+			
+	//$html .= 		tablepdf_2017_v3($resultset,$row,$row_per_siswa,$deskripsi_array,$header,1,$background);
+	
+	//$html .= '		</div>';
+	///$html .= '	</div>';
+	//////////PAGE 3/////////////
+				 if(($jumlah_rapor>0)or($row['kelas_grade']== 12) )
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				 else
+	$html .= '		<div id="bg_nilai" class="page_bg'.$background.'" >';
+
+	$html .= 			$header;
+	$html .= 			tableextra_2017_v2($ekskul_result,$prestasi_result,$row_per_siswa,$return_nilai_catatan_walikelas,$row);
+	
+	$html .= '			<br/>';
+	$html .= 			ttd_2017_v1($row,1);
+	$html .= '		</div>';
+			/*	
+			if($row['kelas_grade'] == 12)
+			{    
+				if($jumlah_rapor>0)
+				{
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				}
+				else
+				{
+	$html .= '		<div id="bg_nilai" >';
+				}
+	$html .= 			pindahkelasv1($row);
+	$html .= '		</div>';
+			}
+			*/
+		//print_r($row_per_siswa);
+		}
+
+	
+	return $html;
+}
+
+function pdfview_2017_sman8smg_v4($id_nilai_siswa,$resultset_array,$deskripsi_pelajaran,$ekskul_result_array,$prestasi_result_array,$org_result_array,$row,$jumlah_rapor,$page_sikap = 0,$background = 0) {
+	
+	$html = style_2017_v1();
+	//$html .= 		$header;
+	
+	//$html = sikap_2017_v2();
+	$jml = 0 ;
+	foreach($id_nilai_siswa['data'] as $cetak)
+	{
+		$jml++;
+		$jumlah_rapor--;
+		$row_per_siswa=$cetak;
+		
+		$resultset 			= $resultset_array[$cetak['id']];
+		$ekskul_result 		= $ekskul_result_array[$cetak['id']];
+		$prestasi_result 	= $prestasi_result_array[$cetak['id']];
+		$org_result 		= $org_result_array[$cetak['id']];
+			
+	$deskripsi_array = 	func_deskripsi_sikap_v1($row_per_siswa["siswa_nama"],$deskripsi_pelajaran);
+	
+	$header = '		<div id="header_1" class="header">';
+	$header .= 		header_2017_v2($row,$row_per_siswa);
+	$header .= '	</div>';
+	
+	$html .= '	<htmlpagefooter name="footer_pagenum">';
+	//$html .= 	footer_2017_v1($row);
+	$html .= '	</htmlpagefooter>';
+	
+	$html .= '	<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+	
+	//$html .= '		<div id="header_1" class="header">';
+	$html .= 		$header;
+	//$html .= '		</div>';
+	$html .=' 		<br><br><br><br><br><br>';
+
+			
+	//////////PAGE 1/////////////
+	$html .= '		<div align="center" class="sub-kategori"><b>CAPAIAN HASIL BELAJAR</b></div>';
+			
+	$html .= 		tablepdf_2017_v3($resultset,$row,$row_per_siswa,$deskripsi_array,$header,0,$page_sikap);
+					$return_nilai_catatan_walikelas = tablepdf_2017_v3($resultset,$row,$row_per_siswa,$deskripsi_array,$header,2);
+	
+	$html .= '		</div>';
+	$html .= '	</div>';
+		
+	//////////PAGE 2/////////////
+	//$html .= '		<div class="sub-kategori"><b>DESKRIPSI PENGETAHUAN DAN KETERAMPILAN</b></div>';
+			
+	//$html .= 		tablepdf_2017_v3($resultset,$row,$row_per_siswa,$deskripsi_array,$header,1,$background);
+	
+	//$html .= '		</div>';
+	///$html .= '	</div>';
+	//////////PAGE 3/////////////
+				 if($jumlah_rapor>0)
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				 else
+	$html .= '		<div id="bg_nilai" class="page_bg'.$background.'" >';
+
+	$html .= 			$header;
+	$html .= 			tableextra_2017_v2($ekskul_result,$prestasi_result,$row_per_siswa,$return_nilai_catatan_walikelas,$row);
+	
+	$html .= '			<br/>';
+	$html .= 			ttd_2017_v1($row,1);
+	$html .= '		</div>';
+			/*	
+			if($row['kelas_grade'] == 12)
+			{    
+				if($jumlah_rapor>0)
+				{
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				}
+				else
+				{
+	$html .= '		<div id="bg_nilai" >';
+				}
+	$html .= 			pindahkelasv1($row);
+	$html .= '		</div>';
+			}
+			*/
+		//print_r($row_per_siswa);
+		}
+
+	
+	return $html;
+}
+
+function pdfview_2017_sman8smg_v5($id_nilai_siswa,$resultset_array,$deskripsi_pelajaran,$ekskul_result_array,$prestasi_result_array,$org_result_array,$row,$jumlah_rapor,$page_sikap = 0,$background = 0) {
+	
+	$html = style_2017_v1();
+	
+	$jml = 0 ;
+	foreach($id_nilai_siswa['data'] as $cetak)
+	{
+		$jml++;
+		$jumlah_rapor--;
+		$row_per_siswa=$cetak;
+		
+		$resultset 			= $resultset_array[$cetak['id']];
+		$ekskul_result 		= $ekskul_result_array[$cetak['id']];
+		$prestasi_result 	= $prestasi_result_array[$cetak['id']];
+		$org_result 		= $org_result_array[$cetak['id']];
+			
+	$deskripsi_array = 	func_deskripsi_sikap_v1($row_per_siswa["siswa_nama"],$deskripsi_pelajaran);
+	
+	$header = '		<div id="header_1" class="header">';
+	$header .= 		header_2017_v2($row,$row_per_siswa);
+	$header .= '	</div>';
+	
+	$html .= '	<htmlpagefooter name="footer_pagenum">';
+	//$html .= 	footer_2017_v1($row);
+	$html .= '	</htmlpagefooter>';
+	
+	$html .= '	<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+	
+	//$html .= '		<div id="header_1" class="header">';
+	$html .= 		$header;
+	//$html .= '		</div>';
+	$html .=' 		<br><br><br><br><br><br>';
+
+			
+	//////////PAGE 1/////////////
+	$html .= '		<div align="center" class="sub-kategori"><b>CAPAIAN HASIL BELAJAR</b></div>';
+			
+	$html .= 		tablepdf_2017_v4($resultset,$row,$row_per_siswa,$deskripsi_array,$header,0,$page_sikap);
+					$return_nilai_catatan_walikelas = tablepdf_2017_v4($resultset,$row,$row_per_siswa,$deskripsi_array,$header,2);
+	
+	$html .= '		</div>';
+	$html .= '	</div>';
+		
+	//////////PAGE 2/////////////
+	
+	//////////PAGE 3/////////////
+				 if($jumlah_rapor>0)
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				 else
+	$html .= '		<div id="bg_nilai" class="page_bg'.$background.'" >';
+
+	$html .= 			$header;
+	$html .= 			tableextra_2017_v3($ekskul_result,$prestasi_result,$row_per_siswa,$return_nilai_catatan_walikelas,$row);
+	
+	$html .= '			<br/>';
+	$html .= 			ttd_2017_v1($row,1);
+	$html .= '		</div>';
+			
+		}
+
+	
+	return $html;
+}
+
+function pdfview_2017_sman8smg_v6($id_nilai_siswa,$resultset_array,$deskripsi_pelajaran,$ekskul_result_array,$prestasi_result_array,$org_result_array,$row,$jumlah_rapor,$page_sikap = 0,$background = 0) {
+	
+	$html = style_2017_v1();
+	
+	$jml = 0 ;
+	foreach($id_nilai_siswa['data'] as $cetak)
+	{
+		$jml++;
+		$jumlah_rapor--;
+		$row_per_siswa=$cetak;
+		
+		$resultset 			= $resultset_array[$cetak['id']];
+		$ekskul_result 		= $ekskul_result_array[$cetak['id']];
+		$prestasi_result 	= $prestasi_result_array[$cetak['id']];
+		$org_result 		= $org_result_array[$cetak['id']];
+			
+	$deskripsi_array = 	func_deskripsi_sikap_v1($row_per_siswa["siswa_nama"],$deskripsi_pelajaran);
+	
+	$header = '		<div id="header_1" class="header">';
+	$header .= 		header_2017_v2($row,$row_per_siswa);
+	$header .= '	</div>';
+	
+	$html .= '	<htmlpagefooter name="footer_pagenum">';
+	//$html .= 	footer_2017_v1($row);
+	$html .= '	</htmlpagefooter>';
+	
+	$html .= '	<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+	
+	//$html .= '		<div id="header_1" class="header">';
+	$html .= 		$header;
+	//$html .= '		</div>';
+	$html .=' 		<br><br><br><br><br><br>';
+
+			
+	//////////PAGE 1/////////////
+	$html .= '		<div align="center" class="sub-kategori"><b>CAPAIAN HASIL BELAJAR</b></div>';
+			
+	$html .= 		tablepdf_2017_v4($resultset,$row,$row_per_siswa,$deskripsi_array,$header,0,$page_sikap);
+					$return_nilai_catatan_walikelas = tablepdf_2017_v4($resultset,$row,$row_per_siswa,$deskripsi_array,$header,2);
+	
+	$html .= '		</div>';
+	$html .= '	</div>';
+		
+	//////////PAGE 2/////////////
+	
+	//////////PAGE 3/////////////
+				 if($jumlah_rapor>0)
+	$html .= '		<div id="bg_deskripsi" class="content page-notend page_bg'.$background.'">';
+				 else
+	$html .= '		<div id="bg_nilai" class="page_bg'.$background.'" >';
+
+	$html .= 			$header;
+	$html .= 			tableextra_2017_v4($ekskul_result,$prestasi_result,$row_per_siswa,$return_nilai_catatan_walikelas,$row);
+	
+	$html .= '			<br/>';
+	$html .= 			ttd_2017_v2($row,1);
+	$html .= '		</div>';
+			
+		}
+
+	
+	return $html;
+}
+?>

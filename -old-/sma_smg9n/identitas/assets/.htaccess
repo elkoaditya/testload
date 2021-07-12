@@ -1,0 +1,11 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_URI} !^/fonts
+RewriteRule ^(.*)$ http://fresto.co/master_fresto_v2_01/identitas/assets/$1 [L]
+
+</IfModule>
+

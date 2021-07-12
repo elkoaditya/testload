@@ -1,0 +1,6 @@
+
+<IfModule mod_rewrite.c>
+
+RewriteRule ^(.*)$ http://fresto.co/master_fresto_v2_01/identitas/plugins/$1 [L]
+</IfModule>
+
