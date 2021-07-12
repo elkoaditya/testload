@@ -6,10 +6,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy using ssh
+      - name: "34.101.169.255"
         uses: appleboy/ssh-action@master
         with:
           host: '34.101.169.255'
+          username: ${{ secrets.FTP_USER }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            apt install git
+            cd /var/www/html
+            git init
+            git remote add origin https://github.com/elkoaditya/testload.git
+            git pull origin main --allow-unrelated-histories
+            service nginx restart
+    steps:
+      - name: "34.101.188.126"
+        uses: appleboy/ssh-action@master
+        with:
+          host: '34.101.188.126'
           username: ${{ secrets.FTP_USER }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
