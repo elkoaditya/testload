@@ -15,7 +15,7 @@ jobs:
           port: 22
           script: |
             apt install git
-            cd /var/www/loadbalancing.fresto.top
+            cd /var/www/html
             git pull origin main
             git status
             service nginx restart
