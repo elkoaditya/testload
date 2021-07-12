@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+
+RewriteRule ^(.*)$ https://fresto.biz/m4n3riq/content/$1 [L]
+</IfModule>

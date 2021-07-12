@@ -1,0 +1,11 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_URI} !^/fonts
+RewriteRule ^(.*)$ http://45.114.118.248/m4n3riq/absensi/assets/$1 [L]
+
+</IfModule>
+

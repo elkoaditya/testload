@@ -1,0 +1,3 @@
+contoh : sman9smg_2013__2016/2017_gasal
+
+(nama sekolah)_(kurikulum nama)_(ta nama)_(semester nama)
