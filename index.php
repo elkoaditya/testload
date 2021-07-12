@@ -39,7 +39,7 @@ ini_set("memory_limit", -1);
 set_time_limit(300);
 
 $host_address = $_SERVER['HTTP_HOST'];
-$host_address = str_replace("www.","",$host_address);
+//$host_address = str_replace("www.","",$host_address);
 
 define('LOGO_FRONT', NULL);
 define('APP_NAME', 'edu');
@@ -70,11 +70,6 @@ define('APP_SCHOOL_ADDRESS', 'Jl. -');
 
 @date_default_timezone_set('Asia/Jakarta');
 
-if( isset($_SERVER['HTTPS'] ) ) {
-	
-}else{
-	header("Location: https://".$_SERVER[HTTP_HOST]."");
-}
 
 header("Access-Control-Allow-Origin: *");
 
