@@ -20,11 +20,14 @@ jobs:
             git remote add origin https://github.com/elkoaditya/testload.git
             git pull origin main --allow-unrelated-histories
             service nginx restart
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: "34.101.188.126"
+      - name: "34.101.169.255"
         uses: appleboy/ssh-action@master
         with:
-          host: '34.101.188.126'
+          host: '34.101.169.255'
           username: ${{ secrets.FTP_USER }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
