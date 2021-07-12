@@ -7,6 +7,6 @@
     <title>ELKO</title>
 </head>
 <body>
-    <h1>OKE TEST 1</h1>
+    <h1>Load Balancing Test 1</h1>
 </body>
 </html>
