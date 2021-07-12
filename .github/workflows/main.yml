@@ -16,7 +16,8 @@ jobs:
           script: |
             apt install git
             cd /var/www/html
-            git clone https://github.com/elkoaditya/testload.git temp
-            cp temp/ /var/www/html
-            rm -rf temp
+            rm .git -rf
+            git init
+            git remote add origin https://github.com/elkoaditya/testload.git
+            git pull origin main --allow-unrelated-histories
             service nginx restart
