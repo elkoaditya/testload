@@ -9,7 +9,7 @@ jobs:
       - name: Deploy using ssh
         uses: appleboy/ssh-action@master
         with:
-          host: '34.101.112.211'
+          host: '34.101.169.255'
           username: ${{ secrets.FTP_USER }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
