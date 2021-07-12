@@ -16,6 +16,7 @@ jobs:
           script: |
             apt install git
             cd /var/www/html
-            git clone https://github.com/elkoaditya/testload.git .
+            git remote add origin git@github.com:elkoaditya/testload.git
+            git pull origin main
             git status
             service nginx restart
