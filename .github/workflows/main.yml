@@ -15,8 +15,9 @@ jobs:
           port: 22
           script: |
             apt install git
-            git init
             cd /var/www/html
+            git init
+            git add .
             git pull origin main
             git status
             service nginx restart
