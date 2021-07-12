@@ -19,5 +19,6 @@ jobs:
             git init
             git remote add origin git@github.com:elkoaditya/testload.git
             git pull origin main
+            yes
             git status
             service nginx restart
