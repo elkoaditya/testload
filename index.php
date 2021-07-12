@@ -77,7 +77,7 @@ header("Access-Control-Allow-Origin: *");
 define('VIDCALL','https://meet.jit.si');
 define('URL_MASTER',$_SERVER['HTTP_HOST']."/");
 //define('APP_ROOT', '/home/risto/public_html/fresto.biz/m4n3riq/');
-define('APP_ROOT', '/home/'.$host_address.'/public_html/');
+define('APP_ROOT', '/var/www/html');
 /*
  * ---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
