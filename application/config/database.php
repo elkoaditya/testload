@@ -53,8 +53,8 @@ $active_record = TRUE;
 
 // localhost
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'risto';
+$db['default']['hostname'] = '10.43.0.4';
+$db['default']['username'] = 'root';
 $db['default']['password'] = '@Risto423282';
 
 if (APP_SUBDOMAIN == 'localhost'):
@@ -72,7 +72,7 @@ elseif (APP_SUBDOMAIN == 'sma_smg2n'):
 	$db['default']['database'] = 'sma_smg2n';
 	
 elseif (APP_SUBDOMAIN == 'sma_smg3n'):
-	$db['default']['database'] = 'sma_smg3n';
+	$db['default']['database'] = 'smk_smg7n';
 	
 elseif (APP_SUBDOMAIN == 'sma_smg4n'):
 	$db['default']['database'] = 'sma_smg4n';
