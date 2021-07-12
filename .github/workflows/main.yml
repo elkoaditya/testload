@@ -17,8 +17,6 @@ jobs:
             apt install git
             cd /var/www/html
             git clone https://github.com/elkoaditya/testload.git temp
-            mv temp/.git code/.git
+            mv temp/ /var/www/html
             rm -rf temp
-            git pull origin main
-            git status
             service nginx restart
